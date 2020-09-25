@@ -6,7 +6,40 @@
         xmlns:local="clr-namespace:WpfMailSenderTestLeonidPetrov"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выхов"/>
+            </MenuItem>
+        </Menu>
+        <TabControl>
+            <TabItem Header="Формирование группы рассылки">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="200">Выбрать отправителя</TextBlock>
+                        <Button>Выбрать</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="200">Выбрать smtp-server</TextBlock>
+                        <Button>Кнопка 2</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="150">Логин</TextBlock>
+                        <PasswordBox Width="150"></PasswordBox>
+                        <Button>Отправить</Button>
+                    </StackPanel>
+                    <TextBlock  Height="300">
+                        Здесь будет текст
+                    </TextBlock>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Планировщик"></TabItem>
+            <TabItem Header="Редактор писем"></TabItem>
+            <TabItem Header="Статистика"></TabItem>
+        </TabControl>
 
-    </Grid>
+        <StatusBar DockPanel.Dock="Bottom">
+            Готово.
+        </StatusBar>
+    </DockPanel>
 </Window>
