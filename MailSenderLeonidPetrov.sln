@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D22BC5DE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSenderTests", "tests\MailSenderTests\MailSenderTests.csproj", "{28F1BF59-91DB-43A4-984E-3059A1295C5D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfMailSenderTestLeonidPetrov", "WpfMailSenderTestLeonidPetrov\WpfMailSenderTestLeonidPetrov\WpfMailSenderTestLeonidPetrov.csproj", "{9442DB34-1665-4EBE-8CF2-443071A77869}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{28F1BF59-91DB-43A4-984E-3059A1295C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28F1BF59-91DB-43A4-984E-3059A1295C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28F1BF59-91DB-43A4-984E-3059A1295C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9442DB34-1665-4EBE-8CF2-443071A77869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9442DB34-1665-4EBE-8CF2-443071A77869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9442DB34-1665-4EBE-8CF2-443071A77869}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9442DB34-1665-4EBE-8CF2-443071A77869}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{28F1BF59-91DB-43A4-984E-3059A1295C5D} = {D22BC5DE-C80D-402B-81DB-38B3F9480A70}
+		{9442DB34-1665-4EBE-8CF2-443071A77869} = {D22BC5DE-C80D-402B-81DB-38B3F9480A70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C5BD322-0EF3-4992-859B-B71B7DC12A93}
