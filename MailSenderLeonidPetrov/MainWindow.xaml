@@ -41,9 +41,16 @@
                                 <ComboBoxItem>smtp.yandex.ru</ComboBoxItem>
                                 <ComboBoxItem>smtp.ya.ru</ComboBoxItem>
                             </ComboBox>
-                            <Button Content="Add"/>
-                            <Button Content="Edit"/>
-                            <Button Content="Del"/>
+                            <Button>
+                                <Image Source="media/add.png" Height="13"/>
+                            </Button>
+                            <Button>
+                                <Image Source="media/edit.png" Height="13"/>
+                            </Button>
+                            <Button>
+                                <Image Source="media/del.png" Height="13"/>
+                            </Button>
+                             
                         </ToolBar>
                         <ToolBar Header="Отправители" Band="1">
                             <ComboBox MinWidth="120" MaxHeight="200" 
