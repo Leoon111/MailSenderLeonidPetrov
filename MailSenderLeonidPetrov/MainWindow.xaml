@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:local="clr-namespace:MailSenderLeonidPetrov"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -50,7 +51,7 @@
                             <Button>
                                 <Image Source="media/del.png" Height="13"/>
                             </Button>
-                             
+
                         </ToolBar>
                         <ToolBar Header="Отправители" Band="1">
                             <ComboBox MinWidth="120" MaxHeight="200" 
@@ -58,17 +59,28 @@
                                 <ComboBoxItem>Иванов</ComboBoxItem>
                                 <ComboBoxItem>Петров</ComboBoxItem>
                             </ComboBox>
-                            <Button Content="Add"/>
-                            <Button Content="Edit"/>
-                            <Button Content="Del"/>
+                            <Button ToolTip="Добавить">
+                                <fa:ImageAwesome Icon="Solid_Plus" Height="13" Foreground="Red"/>
+                            </Button>
+                            <Button fa:Awesome.Content="Solid_Edit" Foreground="Blue"
+                                    ToolTip="Редактировать"/>
+                            <Button fa:Awesome.Content="Solid_TrashAlt" Foreground="Coral"
+                                    ToolTip="Удалить"/>
                         </ToolBar>
                         <ToolBar Header="Перейти в планировщик" Band="0">
-                            <Button>Перейти</Button>
+                            <Button fa:Awesome.Content="Solid_Clock" Foreground="BlueViolet"/>
                         </ToolBar>
                         <ToolBar Header="Получатели" Band="1">
-                            <Button Content="Add"/>
-                            <Button Content="Edit"/>
-                            <Button Content="Del"/>
+                            <Button ToolTip="Добавить">
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome Icon="Solid_Plus" Height="13" Foreground="Red"/>
+                                    <TextBlock Text="Добавить получателя" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button fa:Awesome.Content="Solid_Edit" Foreground="Blue"
+                                    ToolTip="Редактировать"/>
+                            <Button fa:Awesome.Content="Solid_TrashAlt" Foreground="Coral"
+                                    ToolTip="Удалить"/>
                         </ToolBar>
                     </ToolBarTray>
 
