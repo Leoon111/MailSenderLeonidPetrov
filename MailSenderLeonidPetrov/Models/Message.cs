@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MailSenderLeonidPetrov.Models
+﻿namespace MailSenderLeonidPetrov.Models
 {
     class Message
     {
+        public string Subjekt { get; set; }
+        public string Body { get; set; }
     }
 }
