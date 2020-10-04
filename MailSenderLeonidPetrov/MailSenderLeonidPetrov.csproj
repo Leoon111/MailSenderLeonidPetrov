@@ -6,4 +6,20 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="media\add.png" />
+    <None Remove="media\del.png" />
+    <None Remove="media\edit.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="media\add.png" />
+    <Resource Include="media\del.png" />
+    <Resource Include="media\edit.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome5" Version="2.0.8" />
+  </ItemGroup>
+
 </Project>
