@@ -33,7 +33,7 @@ namespace MailSenderLeonidPetrov.Data
         public static List<Message> Messages { get; } = Enumerable.Range(1, 10)
             .Select(i => new Message
             {
-                Subjekt = $"Сообщение {i}",
+                Subject = $"Сообщение {i}",
                 Body = $"Текст сообщения {i}"
             })
             .ToList();
