@@ -7,7 +7,7 @@ namespace MailSenderLeonidPetrov.Models
     class Server
     {
         public string Address { get; set; }
-        private int _Port;
+        private int _Port = 25;
 
         public int Port
         {
@@ -23,5 +23,7 @@ namespace MailSenderLeonidPetrov.Models
         public string Login { get; set; }
         public string Password { get; set; }
         public string Discription { get; set; }
+
+        //public override string ToString() => $"{Address}:{Port}";
     }
 }

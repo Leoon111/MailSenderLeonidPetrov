@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:data="clr-namespace:MailSenderLeonidPetrov.Data"
+        xmlns:m="clr-namespace:MailSenderLeonidPetrov.Models"
         xmlns:local="clr-namespace:MailSenderLeonidPetrov"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -37,10 +39,11 @@
                 <DockPanel>
                     <ToolBarTray DockPanel.Dock="Top">
                         <ToolBar Header="Сервера" Band="0">
-                            <ComboBox Margin="28,0,0,0" MinWidth="120" MaxHeight="200" 
-                                      SelectedIndex="1">
-                                <ComboBoxItem>smtp.yandex.ru</ComboBoxItem>
-                                <ComboBoxItem>smtp.ya.ru</ComboBoxItem>
+                            <ComboBox Name="ServersList" Margin="28,0,0,0" MinWidth="120" MaxHeight="200" 
+                                      SelectedIndex="0"
+                                      ItemsSource="{x:Static data:TestData.Servers}"
+                                      DisplayMemberPath="Address">
+
                             </ComboBox>
                             <Button>
                                 <Image Source="media/add.png" Height="13"/>
@@ -55,9 +58,18 @@
                         </ToolBar>
                         <ToolBar Header="Отправители" Band="1">
                             <ComboBox MinWidth="120" MaxHeight="200" 
-                                      SelectedIndex="1">
-                                <ComboBoxItem>Иванов</ComboBoxItem>
-                                <ComboBoxItem>Петров</ComboBoxItem>
+                                      SelectedIndex="1"
+                                      ItemsSource="{x:Static data:TestData.Senders}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate DataType="m:Sender">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Name}"/>
+                                            <TextBlock>: </TextBlock>
+                                            <TextBlock Text="{Binding Address}" 
+                                                       Opacity="0.4"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
                             </ComboBox>
                             <Button ToolTip="Добавить">
                                 <fa:ImageAwesome Icon="Solid_Plus" Height="13" Foreground="Red"/>
