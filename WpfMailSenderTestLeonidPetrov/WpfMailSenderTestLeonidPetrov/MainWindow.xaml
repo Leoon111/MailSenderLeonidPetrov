@@ -4,13 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMailSenderTestLeonidPetrov"
+        xmlns:vm="clr-namespace:WpfMailSenderTestLeonidPetrov.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding X, ElementName=Translator}" 
+        Title="{Binding Title}" 
         Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
         <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="140
                  " Margin="45,46,0,0"
-                 Text="{Binding Angle, ElementName=Rotator}"/>
+                 Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
         <Slider VerticalAlignment="Top" HorizontalAlignment="Left" Width="140
                 " Margin="219,53,0,0" Maximum="600"
                 Value="{Binding X, ElementName=Translator}"/>
