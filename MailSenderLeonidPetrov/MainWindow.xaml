@@ -7,8 +7,10 @@
         xmlns:data="clr-namespace:MailSenderLeonidPetrov.Data"
         xmlns:m="clr-namespace:MailSenderLeonidPetrov.Models"
         xmlns:local="clr-namespace:MailSenderLeonidPetrov"
+        DataContext="{Binding MyWindowsModel, Source={StaticResource Locator}}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding Title}" 
+        Height="450" Width="800">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
@@ -41,7 +43,7 @@
                         <ToolBar Header="Сервера" Band="0">
                             <ComboBox Name="ServersList" Margin="28,0,0,0" MinWidth="120" MaxHeight="200" 
                                       SelectedIndex="0"
-                                      ItemsSource="{x:Static data:TestData.Servers}"
+                                      ItemsSource="{Binding Servers}"
                                       DisplayMemberPath="Address">
 
                             </ComboBox>
@@ -59,7 +61,7 @@
                         <ToolBar Header="Отправители" Band="1">
                             <ComboBox Name="SendersList" MinWidth="120" MaxHeight="200" 
                                       SelectedIndex="1"
-                                      ItemsSource="{x:Static data:TestData.Senders}">
+                                      ItemsSource="{Binding Senders}">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate DataType="m:Sender">
                                         <StackPanel Orientation="Horizontal">
@@ -99,7 +101,7 @@
                     </ToolBarTray>
 
                     <GroupBox Header="Список получателей">
-                        <DataGrid Name="RecipientsList" ItemsSource="{x:Static data:TestData.Recipients}"
+                        <DataGrid Name="RecipientsList" ItemsSource="{Binding Recipients}"
                                   AutoGenerateColumns="False"
                                   GridLinesVisibility="Vertical"
                                   AlternatingRowBackground="LightCyan"
@@ -130,7 +132,7 @@
                                         <Setter Property="Background" Value="White"/>
                                     </Style>
                                 </StackPanel.Resources>
-                                <Button Content="Отправить" Click="OnSendButtonClick" />
+                                <Button Content="Отправить"/>
                                 <Button Content="Запланировать" />
                             </StackPanel>
                         </StackPanel>
@@ -172,7 +174,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <GroupBox Grid.Column="0" Header="Список писем">
-                        <ListBox Name="MessegesList" ItemsSource="{x:Static data:TestData.Messages}"
+                        <ListBox Name="MessegesList" ItemsSource="{Binding Messages}"
                                  DisplayMemberPath="Subject"/>
                     </GroupBox>
                     <GroupBox Grid.Column="1" Header="Редактор">
