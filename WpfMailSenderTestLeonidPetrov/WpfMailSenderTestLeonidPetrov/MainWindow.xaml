@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMailSenderTestLeonidPetrov"
         xmlns:vm="clr-namespace:WpfMailSenderTestLeonidPetrov.ViewModels"
+        xmlns:commands="clr-namespace:WpfMailSenderTestLeonidPetrov.Infrastructure.Commands.Base"
         mc:Ignorable="d"
         Title="{Binding Title}" 
         Topmost="{Binding IsChecked, ElementName=IsWindowsTopMost}"
@@ -39,6 +40,12 @@
         <CheckBox Content="Top most" VerticalAlignment="Top" HorizontalAlignment="Left"
                   Margin="220, 0" Name="IsWindowsTopMost"/>
         <Button Content="Close Windows" VerticalAlignment="Top" HorizontalAlignment="Left" 
-                Margin="20, 80"/>
+                Margin="20, 80">
+            <Button.Command>
+                <commands:CloseWindowsCommand/>
+            </Button.Command>
+        </Button>
+        <Button Content="Hello world!" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                Margin="120, 80" Command="{Binding ShowDialogCommand}"/>
     </Grid>
 </Window>

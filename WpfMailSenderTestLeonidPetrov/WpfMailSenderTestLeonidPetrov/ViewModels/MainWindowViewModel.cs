@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Timers;
+using System.Windows;
+using System.Windows.Input;
+using WpfMailSenderTestLeonidPetrov.Infrastructure.Commands;
 using WpfMailSenderTestLeonidPetrov.ViewModels.Base;
 
 namespace WpfMailSenderTestLeonidPetrov.ViewModels
@@ -35,6 +38,15 @@ namespace WpfMailSenderTestLeonidPetrov.ViewModels
             }
         }
         private readonly Timer _timer;
+
+        private ICommand _showDialogCommand;
+        public ICommand ShowDialogCommand => _showDialogCommand 
+            ??= new LambdaCommand(OnShowDialogCommandExecuted);
+
+        private void OnShowDialogCommandExecuted(object p)
+        {
+            MessageBox.Show("Hello world!");
+        }
 
         public MainWindowViewModel()
         {
