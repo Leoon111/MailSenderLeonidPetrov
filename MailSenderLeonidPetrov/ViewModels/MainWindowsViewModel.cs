@@ -41,6 +41,33 @@ namespace MailSenderLeonidPetrov.ViewModels
             set => Set(ref _Messages, value);
         }
 
+        private Server _SelectedServer;
+        public Server SelectedServer
+        {
+            get => _SelectedServer;
+            set => Set(ref _SelectedServer, value);
+        }
+
+        private Sender _SelectedSender;
+        public Sender SelectedSender
+        {
+            get => _SelectedSender;
+            set => Set(ref _SelectedSender, value);
+        }
+
+        private Recipient _SelectedRecipient;
+        public Recipient SelectedRecipient
+        {
+            get => _SelectedRecipient;
+            set => Set(ref _SelectedRecipient, value);
+        }
+
+        private Message _SelectedMessage;
+        public Message SelectedMessage
+        {
+            get => _SelectedMessage;
+            set => Set(ref _SelectedMessage, value);
+        }
         public MainWindowsViewModel()
         {
             Servers = new ObservableCollection<Server>(TestData.Servers);
