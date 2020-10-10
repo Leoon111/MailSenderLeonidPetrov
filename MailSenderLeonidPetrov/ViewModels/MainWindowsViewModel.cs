@@ -1,5 +1,8 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Input;
 using MailSenderLeonidPetrov.Data;
+using MailSenderLeonidPetrov.Infrastructure.Commands;
 using MailSenderLeonidPetrov.Models;
 using MailSenderLeonidPetrov.ViewModels.Base;
 
@@ -7,6 +10,9 @@ namespace MailSenderLeonidPetrov.ViewModels
 {
     class MainWindowsViewModel : ViewModel
     {
+
+        #region Свойства
+
         private string _Title = "Тестовое окно";
 
         public string Title
@@ -68,6 +74,65 @@ namespace MailSenderLeonidPetrov.ViewModels
             get => _SelectedMessage;
             set => Set(ref _SelectedMessage, value);
         }
+
+        #endregion
+
+        #region Команды
+
+        #region CreateNewServerCommand
+
+        private ICommand _CreateNewServerCommand;
+
+        public ICommand CreateNewServerCommand => _CreateNewServerCommand
+            ??= new LambdaCommand(OnCreateNewServerCommandExecuted, CanCreateNewServerCommandExecute);
+
+        private bool CanCreateNewServerCommandExecute(object p) => true;
+
+        private void OnCreateNewServerCommandExecuted(object p)
+        {
+            // Основное действие, выполняемое командой, описывается здесь
+
+            MessageBox.Show("Создание нового сервера", "Управление серверами");
+        }
+
+        #endregion
+        #region EditServerCommand
+
+        private ICommand _EditServerCommand;
+
+        public ICommand EditServerCommand => _EditServerCommand
+            ??= new LambdaCommand(OnEditServerCommandExecuted, CanEditServerCommandExecute);
+
+        private bool CanEditServerCommandExecute(object p) => true;
+
+        private void OnEditServerCommandExecuted(object p)
+        {
+            // Основное действие, выполняемое командой, описывается здесь
+
+            MessageBox.Show("Редактирование сервера", "Управление серверами");
+        }
+
+        #endregion
+        #region DeleteServerCommand
+
+        private ICommand _DeleteServerCommand;
+
+        public ICommand DeleteServerCommand => _DeleteServerCommand
+            ??= new LambdaCommand(OnDeleteServerCommandExecuted, CanDeleteServerCommandExecute);
+
+        private bool CanDeleteServerCommandExecute(object p) => true;
+
+        private void OnDeleteServerCommandExecuted(object p)
+        {
+            // Основное действие, выполняемое командой, описывается здесь
+
+            MessageBox.Show("Удаление сервера", "Управление серверами");
+        }
+
+        #endregion
+
+        #endregion
+
         public MainWindowsViewModel()
         {
             Servers = new ObservableCollection<Server>(TestData.Servers);
