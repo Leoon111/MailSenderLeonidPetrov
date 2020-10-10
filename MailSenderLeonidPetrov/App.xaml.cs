@@ -21,7 +21,11 @@ namespace MailSenderLeonidPetrov
         private static void ConfigureServices(HostBuilderContext host, IServiceCollection service)
         {
             service.AddSingleton<MainWindowsViewModel>();
+#if DEBUG
+            service.AddTransient<IMailService, DebugMailService>();
+#else
             service.AddTransient<IMailService, SmtpMailService>();
+#endif
         }
     }
 }

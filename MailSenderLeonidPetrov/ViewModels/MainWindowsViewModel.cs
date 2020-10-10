@@ -14,6 +14,8 @@ namespace MailSenderLeonidPetrov.ViewModels
     {
         private readonly IMailService _mailService;
 
+        public StatisticViewModel Statistic { get; } = new StatisticViewModel();
+
         #region Свойства
 
         private string _Title = "Тестовое окно";
@@ -164,6 +166,8 @@ namespace MailSenderLeonidPetrov.ViewModels
             var mail_sender = _mailService.GetSender(server.Address, server.Port, server.UseSSL, server.Login,
                 server.Password);
             mail_sender.Send(sender.Address, recipient.Address, message.Subject, message.Body);
+
+            Statistic.MessagesSended();
         }
 
         #endregion

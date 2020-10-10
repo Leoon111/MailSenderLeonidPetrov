@@ -23,6 +23,8 @@
             </MenuItem>
             <MenuItem Header="Сервис">
                 <MenuItem Header="Параметры"/>
+                <Separator/>
+                <MenuItem Header="Отправка почты" Command="{Binding SentMailCommand}"/>
             </MenuItem>
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе"/>
@@ -44,7 +46,7 @@
                             <ComboBox Name="ServersList" Margin="28,0,0,0" MinWidth="120" MaxHeight="200" 
                                       SelectedIndex="0"
                                       ItemsSource="{Binding Servers}"
-                                      SelectedItem="{Binding SelectedSender}"
+                                      SelectedItem="{Binding SelectedServer}"
                                       DisplayMemberPath="Address">
 
                             </ComboBox>
@@ -136,7 +138,7 @@
                                         <Setter Property="Background" Value="White"/>
                                     </Style>
                                 </StackPanel.Resources>
-                                <Button Content="Отправить"/>
+                                <Button Content="Отправить" Command="{Binding SentMailCommand}"/>
                                 <Button Content="Запланировать" />
                             </StackPanel>
                         </StackPanel>
@@ -226,7 +228,7 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Число отправленных писем:"/>
-                    <TextBlock Grid.Row="0" Grid.Column="1" Text="5"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Statistic.SendMessagesCount}"/>
 
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Число отправителей в базе:"/>
                     <TextBlock Grid.Row="1" Grid.Column="1" Text="5"/>
