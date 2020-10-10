@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using MailSenderLeonidPetrov.Data;
@@ -103,11 +104,12 @@ namespace MailSenderLeonidPetrov.ViewModels
         public ICommand EditServerCommand => _EditServerCommand
             ??= new LambdaCommand(OnEditServerCommandExecuted, CanEditServerCommandExecute);
 
-        private bool CanEditServerCommandExecute(object p) => true;
+        private bool CanEditServerCommandExecute(object p) => p is Sender || SelectedServer != null;
 
         private void OnEditServerCommandExecuted(object p)
         {
-            // Основное действие, выполняемое командой, описывается здесь
+            var server = p as Server ?? SelectedServer;
+            if (server is null) return;
 
             MessageBox.Show("Редактирование сервера", "Управление серверами");
         }
@@ -120,11 +122,15 @@ namespace MailSenderLeonidPetrov.ViewModels
         public ICommand DeleteServerCommand => _DeleteServerCommand
             ??= new LambdaCommand(OnDeleteServerCommandExecuted, CanDeleteServerCommandExecute);
 
-        private bool CanDeleteServerCommandExecute(object p) => true;
+        private bool CanDeleteServerCommandExecute(object p) => p is Sender || SelectedServer != null;
 
         private void OnDeleteServerCommandExecuted(object p)
         {
-            // Основное действие, выполняемое командой, описывается здесь
+            var server = p as Server ?? SelectedServer;
+            if (server is null) return;
+
+            Servers.Remove(server);
+            SelectedServer = Servers.FirstOrDefault();
 
             MessageBox.Show("Удаление сервера", "Управление серверами");
         }
