@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Hosting;
 using System;
+using MailSender.lib.Interface;
+using MailSender.lib.Service;
 using MailSenderLeonidPetrov.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,6 +21,7 @@ namespace MailSenderLeonidPetrov
         private static void ConfigureServices(HostBuilderContext host, IServiceCollection service)
         {
             service.AddSingleton<MainWindowsViewModel>();
+            service.AddTransient<IMailService, SmtpMailService>();
         }
     }
 }

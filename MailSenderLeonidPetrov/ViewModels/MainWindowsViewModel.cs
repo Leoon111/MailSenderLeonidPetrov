@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using MailSender.lib.Interface;
 using MailSenderLeonidPetrov.Data;
 using MailSenderLeonidPetrov.Infrastructure.Commands;
 using MailSenderLeonidPetrov.Models;
@@ -11,6 +12,7 @@ namespace MailSenderLeonidPetrov.ViewModels
 {
     class MainWindowsViewModel : ViewModel
     {
+        private readonly IMailService _mailService;
 
         #region Свойства
 
@@ -139,8 +141,9 @@ namespace MailSenderLeonidPetrov.ViewModels
 
         #endregion
 
-        public MainWindowsViewModel()
+        public MainWindowsViewModel(IMailService mailService)
         {
+            _mailService = mailService;
             Servers = new ObservableCollection<Server>(TestData.Servers);
             Senders = new ObservableCollection<Sender>(TestData.Senders);
             Recipients = new ObservableCollection<Recipient>(TestData.Recipients);
