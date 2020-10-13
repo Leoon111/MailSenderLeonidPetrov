@@ -26,6 +26,7 @@ namespace MailSenderLeonidPetrov
 #else
             service.AddTransient<IMailService, SmtpMailService>();
 #endif
+            service.AddSingleton<IEncryptorService, Rfc2898Encryptor>();
         }
     }
 }
