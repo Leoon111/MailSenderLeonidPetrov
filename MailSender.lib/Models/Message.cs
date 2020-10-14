@@ -1,6 +1,6 @@
-﻿namespace MailSenderLeonidPetrov.Models
+﻿namespace MailSender.lib.Models
 {
-    class Message
+    public class Message
     {
         public string Subject { get; set; }
         public string Body { get; set; }

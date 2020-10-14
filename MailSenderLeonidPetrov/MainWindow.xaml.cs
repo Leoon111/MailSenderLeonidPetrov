@@ -3,7 +3,6 @@ using System.Net.Mail;
 using System.Windows;
 using MailSender.lib;
 using MailSenderLeonidPetrov.Data;
-using MailSenderLeonidPetrov.Models;
 
 namespace MailSenderLeonidPetrov
 {
