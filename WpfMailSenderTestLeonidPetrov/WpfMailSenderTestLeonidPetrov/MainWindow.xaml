@@ -4,42 +4,48 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMailSenderTestLeonidPetrov"
+        xmlns:vm="clr-namespace:WpfMailSenderTestLeonidPetrov.ViewModels"
+        xmlns:commands="clr-namespace:WpfMailSenderTestLeonidPetrov.Infrastructure.Commands.Base"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Файл">
-                <MenuItem Header="Выхов"/>
-            </MenuItem>
-        </Menu>
-        <TabControl>
-            <TabItem Header="Формирование группы рассылки">
-                <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Width="200">Выбрать отправителя</TextBlock>
-                        <Button>Выбрать</Button>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Width="200">Выбрать smtp-server</TextBlock>
-                        <Button>Кнопка 2</Button>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Width="150">Логин</TextBlock>
-                        <PasswordBox Width="150"></PasswordBox>
-                        <Button>Отправить</Button>
-                    </StackPanel>
-                    <TextBlock  Height="300">
-                        Здесь будет текст
-                    </TextBlock>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="Планировщик"></TabItem>
-            <TabItem Header="Редактор писем"></TabItem>
-            <TabItem Header="Статистика"></TabItem>
-        </TabControl>
-
-        <StatusBar DockPanel.Dock="Bottom">
-            Готово.
-        </StatusBar>
-    </DockPanel>
+        Title="{Binding Title}" 
+        Topmost="{Binding IsChecked, ElementName=IsWindowsTopMost}"
+        Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="140
+                 " Margin="45,46,0,0"
+                 Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
+        <Slider VerticalAlignment="Top" HorizontalAlignment="Left" Width="140
+                " Margin="219,53,0,0" Maximum="600"
+                Value="{Binding X, ElementName=Translator}"/>
+        <Slider VerticalAlignment="Top" HorizontalAlignment="Left" Width="140"
+                 Maximum="180" Minimum="-180" Margin="417,53,0,0"
+                 Value="{Binding Angle, ElementName=Rotator}"/>
+        <Ellipse Fill="DarkBlue" Stroke="Red" StrokeThickness="4" 
+                 VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" Height="40"
+                 Margin="75,117,0,0" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform X="0" x:Name="Translator"/>
+                    <RotateTransform Angle="0" x:Name="Rotator"/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <TextBlock Text="{Binding CurrentTime, 
+            ConverterCulture=ru-Ru, StringFormat=HH:mm:ss.ffff}"/>
+        <CheckBox Content="Включить таймер" VerticalAlignment="Top" HorizontalAlignment="Left"
+                  Margin="80, 0" IsChecked="{Binding TimerEnabled}"/>
+        <CheckBox Content="Top most" VerticalAlignment="Top" HorizontalAlignment="Left"
+                  Margin="220, 0" Name="IsWindowsTopMost"/>
+        <Button Content="Close Windows" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                Margin="20, 80">
+            <Button.Command>
+                <commands:CloseWindowsCommand/>
+            </Button.Command>
+        </Button>
+        <Button Content="Hello world!" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                Margin="120, 80" Command="{Binding ShowDialogCommand}"/>
+    </Grid>
 </Window>

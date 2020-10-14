@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MailSender.lib.Service
 {
-    class TextEncoder
+    public class TextEncoder
     {
         public static string Encode(string str, int key = 1)
         {
