@@ -5,6 +5,11 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using MailSender.lib.Interface;
+using MailSender.lib.Service;
+using MailSenderLeonidPetrov.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace MailSenderLeonidPetrov
 {
