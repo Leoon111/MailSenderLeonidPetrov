@@ -7,10 +7,11 @@
         xmlns:data="clr-namespace:MailSenderLeonidPetrov.Data"
         xmlns:v="clr-namespace:MailSenderLeonidPetrov.Views"
         xmlns:local="clr-namespace:MailSenderLeonidPetrov"
+        xmlns:models="clr-namespace:MailSender.lib.Models;assembly=MailSender.lib"
         DataContext="{Binding MyWindowsModel, Source={StaticResource Locator}}"
         mc:Ignorable="d"
         Title="{Binding Title}" 
-        Height="450" Width="800">
+        Height="600" Width="1000">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
@@ -68,7 +69,7 @@
                                       ItemsSource="{Binding Senders}"
                                       SelectedItem="{Binding SelectedSender}">
                                 <ComboBox.ItemTemplate>
-                                    <DataTemplate DataType="m:Sender">
+                                    <DataTemplate DataType="models:Sender">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding Name}"
                                                        ToolTip="{Binding Address}"/>
@@ -105,7 +106,12 @@
                         </ToolBar>
                     </ToolBarTray>
                     <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
                         <v:RecipientsView/>
+                        <v:RecipientEditor Grid.Column="1"/>
                     </Grid>
                    </DockPanel>
             </TabItem>
