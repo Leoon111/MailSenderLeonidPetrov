@@ -36,8 +36,15 @@
         <TextBox Grid.Column="1" Grid.Row="1" 
                  Text="{Binding SelectedRecipient.Name,
             NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}"/>
-        <TextBox Grid.Column="1" Grid.Row="2" 
-                 Text="{Binding SelectedRecipient.Address}"/>
+        <TextBox Grid.Column="1" Grid.Row="2">
+            <TextBox.Text>
+                <Binding Path="SelectedRecipient.Address">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
         <UniformGrid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"  Rows="1"
                      VerticalAlignment="Top" HorizontalAlignment="Center"
