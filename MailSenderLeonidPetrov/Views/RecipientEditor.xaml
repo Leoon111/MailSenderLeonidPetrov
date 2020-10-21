@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSenderLeonidPetrov.Views"
+             xmlns:validation="clr-namespace:MailSenderLeonidPetrov.Infrastructure.ValidationRules"
              DataContext="{Binding MyWindowsModel, Source={StaticResource Locator}}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="15" Validation.Error="OnDataValidationError">
@@ -38,8 +39,9 @@
             NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}"/>
         <TextBox Grid.Column="1" Grid.Row="2">
             <TextBox.Text>
-                <Binding Path="SelectedRecipient.Address">
+                <Binding Path="SelectedRecipient.Address" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
+                        <validation:RegExValidation Pattern="(\w+\.)*\w+@(\w+\.)+[A-Za-z]+" ErrorMessage="Строка адреса имела неверный формат"/>
                         <DataErrorValidationRule/>
                     </Binding.ValidationRules>
                 </Binding>
