@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSenderLeonidPetrov.Views"
-             xmlns:validation="clr-namespace:MailSenderLeonidPetrov.Infrastructure.ValidationRules"
+             xmlns:valid="clr-namespace:MailSenderLeonidPetrov.Infrastructure.ValidationRules"
              DataContext="{Binding MyWindowsModel, Source={StaticResource Locator}}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="15" Validation.Error="OnDataValidationError">
@@ -15,6 +15,24 @@
             </Style>
             <Style TargetType="TextBox">
                 <Setter Property="Margin" Value="5"/>
+                <Setter Property="Validation.ErrorTemplate">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <DockPanel>
+                                <TextBlock DockPanel.Dock="Right" Text="!"
+                                           Foreground="Red"
+                                           FontSize="18"
+                                           FontWeight="Bold"
+                                           Margin="3,0"
+                                           VerticalAlignment="Center"
+                                           ToolTip="{Binding AdornedElement.(Validation.Errors)[0].ErrorContent, ElementName=ErrorVisualElement}"/>
+                                <Border Padding="2" BorderBrush="Red" BorderThickness="3" CornerRadius="3">
+                                    <AdornedElementPlaceholder Name="ErrorVisualElement"/>
+                                </Border>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
@@ -41,7 +59,7 @@
             <TextBox.Text>
                 <Binding Path="SelectedRecipient.Address" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
-                        <validation:RegExValidation Pattern="(\w+\.)*\w+@(\w+\.)+[A-Za-z]+" ErrorMessage="Строка адреса имела неверный формат"/>
+                        <valid:RegExValidation Pattern="(\w+\.)*\w+@(\w+\.)+[A-Za-z]+" ErrorMessage="Строка адреса имела неверный формат"/>
                         <DataErrorValidationRule/>
                     </Binding.ValidationRules>
                 </Binding>
