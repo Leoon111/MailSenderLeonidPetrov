@@ -3,9 +3,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using MailSender.lib.Interface;
+using MailSender.lib.Models;
 using MailSenderLeonidPetrov.Data;
 using MailSenderLeonidPetrov.Infrastructure.Commands;
-using MailSenderLeonidPetrov.Models;
 using MailSenderLeonidPetrov.ViewModels.Base;
 
 namespace MailSenderLeonidPetrov.ViewModels

@@ -7,15 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="media\add.png" />
-    <None Remove="media\del.png" />
-    <None Remove="media\edit.png" />
+    <None Remove="Media\add.png" />
+    <None Remove="Media\del.png" />
+    <None Remove="Media\edit.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="media\add.png" />
-    <Resource Include="media\del.png" />
-    <Resource Include="media\edit.png" />
+    <Resource Include="Media\add.png" />
+    <Resource Include="Media\del.png" />
+    <Resource Include="Media\edit.png" />
   </ItemGroup>
 
   <ItemGroup>

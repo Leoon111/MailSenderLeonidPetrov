@@ -1,6 +1,6 @@
-﻿using MailSenderLeonidPetrov.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using MailSender.lib.Models;
 using MailSender.lib.Service;
 
 
