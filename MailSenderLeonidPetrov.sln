@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailSenderTests", "tests\Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfMailSenderTestLeonidPetrov", "WpfMailSenderTestLeonidPetrov\WpfMailSenderTestLeonidPetrov\WpfMailSenderTestLeonidPetrov.csproj", "{9442DB34-1665-4EBE-8CF2-443071A77869}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender.lib", "MailSender.lib\MailSender.lib.csproj", "{C07C24EA-7956-4B4C-9CB9-6F2F6B2522DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailSender.lib", "MailSender.lib\MailSender.lib.csproj", "{C07C24EA-7956-4B4C-9CB9-6F2F6B2522DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender.lib.tests", "tests\MailSender.lib.tests\MailSender.lib.tests.csproj", "{C4248094-ADDF-4C33-A649-EFEEB5ACD433}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{C07C24EA-7956-4B4C-9CB9-6F2F6B2522DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C07C24EA-7956-4B4C-9CB9-6F2F6B2522DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C07C24EA-7956-4B4C-9CB9-6F2F6B2522DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4248094-ADDF-4C33-A649-EFEEB5ACD433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4248094-ADDF-4C33-A649-EFEEB5ACD433}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4248094-ADDF-4C33-A649-EFEEB5ACD433}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4248094-ADDF-4C33-A649-EFEEB5ACD433}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{28F1BF59-91DB-43A4-984E-3059A1295C5D} = {D22BC5DE-C80D-402B-81DB-38B3F9480A70}
 		{9442DB34-1665-4EBE-8CF2-443071A77869} = {D22BC5DE-C80D-402B-81DB-38B3F9480A70}
+		{C4248094-ADDF-4C33-A649-EFEEB5ACD433} = {D22BC5DE-C80D-402B-81DB-38B3F9480A70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C5BD322-0EF3-4992-859B-B71B7DC12A93}
