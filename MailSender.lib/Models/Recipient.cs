@@ -13,6 +13,9 @@ namespace MailSender.lib.Models
             get => base.Name;
             set
             {
+                //if (value is null)
+                //    throw new ArgumentException(nameof(value));
+
                 if (value == "qwe")
                     throw new ArgumentException("Запрещено вводить qwe", nameof(value));
                 //if (value == "")
