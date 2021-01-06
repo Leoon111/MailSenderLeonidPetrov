@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 
 namespace ConsoleTest
@@ -35,6 +36,22 @@ namespace ConsoleTest
 
             Console.WriteLine("Главный поток завершил работу");
             Console.ReadLine();
+
+            Console.WriteLine("Останавливаю время...");
+
+            //var current_process = System.Diagnostics.Process.GetCurrentProcess();
+            //Process.Start("calc.exe");
+
+            timer_thread.Priority = ThreadPriority.BelowNormal;
+            //timer_thread.Interrupt();
+            //timer_thread.Abort();
+
+            // Если мы не дождались через .Join() остановки потока, то вызываем .Interrupt();
+            _TimerWork = false;
+            if(!timer_thread.Join(100))
+                timer_thread.Interrupt();
+
+            Console.ReadLine();
         }
 
         private static void PrintMessage(object param)
@@ -59,10 +76,11 @@ namespace ConsoleTest
             }
         }
 
+        private static bool _TimerWork = true;
         public static void TimerMethod()
         {
             PrintThreadInfo();
-            while (true)
+            while (_TimerWork)
             {
                 Console.Title = DateTime.Now.ToString("HH:mm:ss.ffff");
                 Thread.Sleep(100);
