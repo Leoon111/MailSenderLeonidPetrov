@@ -10,7 +10,7 @@ namespace ConsoleTest
         {
             //ThreadTests.Start();
 
-            CriticalSectionTests.Start();
+
 
             Console.WriteLine("Главный поток завершил работу");
             Console.ReadLine();
