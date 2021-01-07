@@ -10,9 +10,30 @@ namespace ConsoleTest
     {
         public static void Start()
         {
+            #region Мютексы и семафоры
+
             //LockSynchronizationTest();
             //EventWaitHandleTest();
 
+            //var mutex1 = new Mutex(true, "Тестовый мютекс", out var created1);
+            //var mutex2 = new Mutex(true, "Тестовый мютекс", out var created2);
+
+            //// синхронизация между потоками
+            //// первый WaitOne пройдет и будет работать
+            //mutex1.WaitOne();
+            //// второй WaitOne будет ждать освобождения мютекса
+            //mutex1.WaitOne();
+            //// мютекс освобождается командой ReleaseMutex там, где его заняли
+            //mutex1.ReleaseMutex();
+
+            //// Semaphore - это мютекс в который можно войти много рай, указывается ограничение входа
+            //// можно считать, что мютекс это new Semaphore(0, 1) на один вход
+            //var semaphore = new Semaphore(0, 10);
+            //// так же работает WaitOne и Release, только здесь например их может быть 10 потоков.
+            //semaphore.WaitOne();
+            //semaphore.Release();
+
+            #endregion
 
         }
 
