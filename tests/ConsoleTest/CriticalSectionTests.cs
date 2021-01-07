@@ -10,8 +10,14 @@ namespace ConsoleTest
     {
         public static void Start()
         {
-            LockSynchronizationTest();
+            //LockSynchronizationTest();
+            //EventWaitHandleTest();
 
+
+        }
+
+        private static void EventWaitHandleTest()
+        {
             var manual_reset_event = new ManualResetEvent(false);
             var auto_reset_event = new AutoResetEvent(false);
 
