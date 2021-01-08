@@ -15,6 +15,7 @@ namespace WpfMailSenderTestLeonidPetrov
 
         private void ComputeResultButton_Click(object sender, RoutedEventArgs e)
         {
+            // здесь в один поток
             //var result = GetResultHard();
             //ResultText.Text = result;
 
@@ -27,16 +28,23 @@ namespace WpfMailSenderTestLeonidPetrov
                 //Dispatcher
                 //ResultText.Dispatcher
                 //App.Current.Dispatcher
+
                 var result = GetResultHard();
-                Application.Current.Dispatcher.Invoke(() => ResultText.Text = result);
-
-
+                UpdateResultValue(result);
             }){ IsBackground = true}.Start();
+        }
+
+        public void UpdateResultValue(string Result)
+        {
+            if (Dispatcher.CheckAccess())
+                ResultText.Text = Result;
+            else
+                Dispatcher.Invoke(() => UpdateResultValue(Result));
         }
 
         private string GetResultHard()
         {
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 500; i++)
             {
                 Thread.Sleep(10);
             }
