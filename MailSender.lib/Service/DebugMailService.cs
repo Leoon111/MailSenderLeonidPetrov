@@ -41,6 +41,19 @@ namespace MailSender.lib.Service
                                 $"{_address}:{_port} SSL:{_ssl} (Login:{_login}; Pass:{_password})");
                 Debug.WriteLine($"Сообщение от {SenderAddress} к {RecipientAddress}:\r\n{Subject}\r\n{Body}");
             }
+
+            public void Send(string SenderAddress, IEnumerable<string> RecipientsAddresses, string Subject, string Body)
+            {
+                foreach (var recipient_address in RecipientsAddresses)
+                {
+                    Send(SenderAddress, recipient_address, Subject, Body);
+                }
+            }
+
+            public void SendParallel(string SenderAddress, IEnumerable<string> RecipientsAddresses, string Subject, string Body)
+            {
+                Send(SenderAddress, RecipientsAddresses, Subject, Body);
+            }
         }
     }
 }
