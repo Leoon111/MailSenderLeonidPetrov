@@ -9,13 +9,14 @@ namespace ConsoleTest
         static void Main(string[] args)
         {
             //ThreadTests.Start();
+            //CriticalSectionTests.Start();
+            ThreadPoolTest.Start();
 
-            CriticalSectionTests.Start();
 
             Console.WriteLine("Главный поток завершил работу");
             Console.ReadLine();
         }
     }
 
-    
+
 }
