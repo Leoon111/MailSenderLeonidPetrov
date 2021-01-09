@@ -47,5 +47,9 @@
         </Button>
         <Button Content="Hello world!" VerticalAlignment="Top" HorizontalAlignment="Left" 
                 Margin="120, 80" Command="{Binding ShowDialogCommand}"/>
+        <Button Content="Compete button" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                Margin="220, 80" Click="ComputeResultButton_Click"/>
+        <TextBox Text="Result" VerticalAlignment="Top" HorizontalAlignment="Left"
+                 Margin="220,100" Name="ResultText"/>
     </Grid>
 </Window>
